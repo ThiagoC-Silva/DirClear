@@ -1,15 +1,25 @@
 import os
 from paths import folder_list, file_list
 
-DIRECTORYS = 'directorys'
+DIRECTORIES = 'directories'
+skip_list = []
+directories_list = []
 
 for folder_path, file_path in zip(folder_list, file_list):
-    directory_path = DIRECTORYS + folder_path
+    directory_path = DIRECTORIES + folder_path
     os.makedirs(directory_path, exist_ok = True )
     
-    with open(directory_path+file_path, 'w') as file:
+    full_path = directory_path+file_path
+    with open(full_path, 'w') as file:
         pass
+    directories_list.append(full_path)
 
+answer = input("Do you really want to proced with the cleaning? [yes/not]: ")
 
-
+if answer.lower() in ('y', 'yes'):
+    while True:
+        directories_to_skip = input('Enter the directories to be preserved (press Enter to finish): ')
+        if directories_to_skip == '':
+            break
+        skip_list.append(directories_to_skip)
 
