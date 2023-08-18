@@ -5,18 +5,19 @@ from functions.file_cleaning_utils import create_files
 DIRECTORIES = 'directories/path/folders'
 directories_list = create_directories(DIRECTORIES)
 files_list = create_files(directories_list)
-# skip_list = []
+skip_clean = []
+
+answer = input("Do you really want to proced with the cleaning? [yes/not]: ")
 
 
-# answer = input("Do you really want to proced with the cleaning? [yes/not]: ")
-
-
-# if answer.lower() in ('y', 'yes'):
-#     while True:
-#         directories_to_skip = input('Enter the directories to be preserved (press Enter to finish): ')
-#         if directories_to_skip == '':
-#             break
-#         skip_list.append(directories_to_skip)
+if answer.lower() in ('y', 'yes'):
+    while True:
+        folder_skip = input('Enter the directories to be preserved (press Enter to finish): ')
+        if folder_skip == '':
+            break
+        skip_clean.append(folder_skip)
+    
+    
 
 
 #     for dir_cleaning in directories_list:
