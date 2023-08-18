@@ -2,7 +2,7 @@
 import os
 import shutil
 
-from src.paths import paths_list
+from src.features.paths import paths_list
 #Caminhos a serem limpos
 
 rp = input("Deseja realmente realizar a limpeza?  S-sim / N-não")
