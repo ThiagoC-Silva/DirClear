@@ -9,11 +9,11 @@ folders_list = [
 ]
 
 file_list = [
-    '/file1.txt', 
-    '/file2.txt', 
-    '/file3.txt', 
-    '/file4.txt', 
-    '/file5.txt', 
-    '/file6.txt', 
-    '/file7.txt'
+    'file1.txt', 
+    'file2.txt', 
+    'file3.txt', 
+    'file4.txt', 
+    'file5.txt', 
+    'file6.txt', 
+    'file7.txt'
     ]

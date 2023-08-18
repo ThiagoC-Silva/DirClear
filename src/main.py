@@ -1,27 +1,12 @@
-import os
-# from src.features.paths import folder_list, file_list
 from functions.file_cleaning_utils import create_directories
+from functions.file_cleaning_utils import create_files
+
 
 DIRECTORIES = 'directories/path/folders'
-
-# skip_list = []
-# directories_list = []
-
 directories_list = create_directories(DIRECTORIES)
-print(directories_list)
+files_list = create_files(directories_list)
+# skip_list = []
 
-
-
-
-
-# for folder_path, file_path in zip(folder_list, file_list):
-#     directory_path = DIRECTORIES + folder_path
-#     os.makedirs(directory_path, exist_ok = True )
-    
-#     full_path = directory_path+file_path
-#     with open(full_path, 'w') as file:
-#         pass
-#     directories_list.append(directory_path)
 
 # answer = input("Do you really want to proced with the cleaning? [yes/not]: ")
 
