@@ -1,3 +1,4 @@
+import os
 from functions.file_cleaning_utils import create_directories
 from functions.file_cleaning_utils import create_files
 from functions.file_cleaning_utils import clean_folders
@@ -17,7 +18,9 @@ if answer.lower() in ('y', 'yes'):
         folder_skip = input('Enter the directories to be preserved (press Enter to finish): ')
         if folder_skip == '':
             break
-        skip_clean.append(folder_skip)
+        full_path_skip = os.path.join(DIRECTORIES, folder_skip)
+        print(full_path_skip)
+        skip_clean.append(full_path_skip)
     
     while True:
         clear = int(input('1 - [Delete folders] / 2 - [Clean folders]: '))
@@ -27,7 +30,7 @@ if answer.lower() in ('y', 'yes'):
     if clear == 1:
         delete_folders()
     else:
-        clean_folders()
+        clean_folders(directories_list, skip_clean)
 
 
 

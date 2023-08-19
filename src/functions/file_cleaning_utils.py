@@ -22,8 +22,12 @@ def create_files(directories_list):
     return files_paths_list
 
 
-def clean_folders():
-    ...
+def clean_folders(directories_list, skip_clean):
+    for folder in directories_list:
+        if folder not in skip_clean:
+            for file in os.listdir(folder):
+                file_path = os.path.join(folder, file)
+                os.remove(file_path)
 
 
 def delete_folders():
