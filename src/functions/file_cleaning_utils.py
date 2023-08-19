@@ -1,4 +1,5 @@
 import os
+import shutil
 from .data_paths import folders_list
 from .data_paths import file_list
 
@@ -30,5 +31,12 @@ def clean_folders(directories_list, skip_clean):
                 os.remove(file_path)
 
 
-def delete_folders():
-    pass
+def delete_folders(directories_list, skip_clean):
+    for folder in directories_list:
+        if folder not in skip_clean:
+            try:
+                shutil.rmtree(folder)
+            except OSError:
+                for file in os.listdir(folder):
+                    file_path = os.path.join(folder, file)
+                    os.remove(file_path)
