@@ -1,5 +1,7 @@
 from functions.file_cleaning_utils import create_directories
 from functions.file_cleaning_utils import create_files
+from functions.file_cleaning_utils import clean_folders
+from functions.file_cleaning_utils import delete_folders
 
 
 DIRECTORIES = 'directories/path/folders'
@@ -17,7 +19,16 @@ if answer.lower() in ('y', 'yes'):
             break
         skip_clean.append(folder_skip)
     
+    while True:
+        clear = int(input('1 - [Delete folders] / 2 - [Clean folders]: '))
+        if clear in (1, 2):
+            break
     
+    if clear == 1:
+        delete_folders()
+    else:
+        clean_folders()
+
 
 
 #     for dir_cleaning in directories_list:

@@ -20,3 +20,11 @@ def create_files(directories_list):
             pass
         files_paths_list.append(file_path)
     return files_paths_list
+
+
+def clean_folders():
+    ...
+
+
+def delete_folders():
+    pass
