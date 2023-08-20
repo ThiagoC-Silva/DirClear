@@ -1,8 +1,9 @@
 import os
+from pytest import fixture
 from src.functions.file_cleaning_utils import create_directories
 from src.functions.file_cleaning_utils import create_files
 from src.functions.file_cleaning_utils import clean_folders
-from pytest import fixture
+from src.functions.file_cleaning_utils import delete_folders
 
 @fixture
 def test_directory_list(tmpdir):
@@ -37,3 +38,23 @@ def test_clean_folders(test_directory_list):
             assert len(os.listdir(folder)) == 0
         else:
             assert len(os.listdir(folder)) > 0
+
+
+def test_delete_folders(test_directory_list):
+    skip_clean_test = [test_directory_list[0], test_directory_list[2]]
+    delete_folders(test_directory_list, skip_clean_test)
+
+    for folder in test_directory_list:
+        if folder not in skip_clean_test:
+            assert os.path.exists(folder) == False or len(os.listdir(folder)) == 0
+        else:
+            assert os.path.exists(folder) == True
+
+
+def test_delete_folders_no_skip(test_directory_list):
+    skip_clean_test = []
+    delete_folders(test_directory_list, skip_clean_test)
+
+    for folder in test_directory_list:
+        assert os.path.exists(folder) == False or len(os.listdir(folder)) == 0
+
