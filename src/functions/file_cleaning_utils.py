@@ -10,6 +10,7 @@ def create_directories(DIRECTORIES):
         directories_path = os.path.join(DIRECTORIES, folder)
         os.makedirs(directories_path, exist_ok = True)
         directories_list.append(directories_path)
+        print(directories_path)
     return directories_list
 
 
