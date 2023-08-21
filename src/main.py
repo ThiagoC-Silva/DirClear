@@ -24,11 +24,14 @@ if answer.lower() in ('y', 'yes'):
     
     while True:
         clear = input('1 - [Delete folders] / 2 - [Clean folders]: ')
-        if clear in str((1, 2)):
+        if clear in ('1', '2'):
             break
     
     if clear == '1':
         delete_folders(directories_list, skip_clean)
     else:
         clean_folders(directories_list, skip_clean)
+
+else:
+    print('Cleaning process canceled.')
 
