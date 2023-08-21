@@ -5,6 +5,7 @@ from src.functions.file_cleaning_utils import create_files
 from src.functions.file_cleaning_utils import clean_folders
 from src.functions.file_cleaning_utils import delete_folders
 
+
 @fixture
 def test_directory_list(tmpdir):
     directory_test = tmpdir.mkdir('directories')
@@ -24,7 +25,6 @@ def test_create_files(test_directory_list):
 
 
 def test_clean_folders(test_directory_list):
-    full_path_list = []
     for directory in test_directory_list:
         dir_with_file = os.path.join(directory, 'file_test.txt')
         with open(dir_with_file, 'w') as file:
